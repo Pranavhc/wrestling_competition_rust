@@ -10,4 +10,4 @@ This is what i could learn -
       - feels very difficult at first but it isn't.
       
   3. Mutability in Immutable object is possible
-      - by using std::cell::Cell or RefCell, we can make a feild mutable even the object itself is immutable.
+      - by using std::cell::Cell or RefCell, we can make a feild mutable even if the object itself is immutable.
