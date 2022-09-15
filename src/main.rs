@@ -1,9 +1,11 @@
-// oh boy! this took me so long to finish i swear (to future me)
+// oh boy! this took me too long to finish i swear!
 
-// lesson learned -
-//      there's always a way, nothing's impossible.
-//      Owenership and borrowing - it is very frustrating and important.
-//      Two mutable refferences of an object isn't allowed.
+// lessons learned -
+//      Talking about a single object:
+//          - There can be only be one Owner / writer - Ownership
+//          - There can be multiple refferences / readers - Borrowing
+//          - There cannot be multiple Owners / writers / mutable refferences
+//
 //      std::cell::Cell provides mutability on immutable fields
 
 use rand::Rng;
