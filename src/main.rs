@@ -1,11 +1,3 @@
-// oh boy! this took me so long to finish i swear (to future me)
-
-// lesson learned -
-//      there's always a way, nothing's impossible.
-//      Owenership and borrowing - it is very frustrating and important.
-//      Two mutable refferences of an object isn't allowed.
-//      std::cell::Cell provides mutability on immutable fields
-
 use rand::Rng;
 use std::{
     cell::Cell,
