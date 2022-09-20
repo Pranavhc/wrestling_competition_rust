@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-// oh boy! this took me too long to finish i swear!
-
-// lessons learned -
-//      Talking about a single object:
-//          - There can be only be one Owner / writer - Ownership
-//          - There can be multiple refferences / readers - Borrowing
-//          - There cannot be multiple Owners / writers / mutable refferences
-//
-//      std::cell::Cell provides mutability on immutable fields
-
-=======
->>>>>>> 685fda155b379a36016a3b423b3276b407ae3828
 use rand::Rng;
 use std::{
     cell::Cell,
