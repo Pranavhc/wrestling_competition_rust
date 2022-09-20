@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // oh boy! this took me too long to finish i swear!
 
 // lessons learned -
@@ -8,6 +9,8 @@
 //
 //      std::cell::Cell provides mutability on immutable fields
 
+=======
+>>>>>>> 685fda155b379a36016a3b423b3276b407ae3828
 use rand::Rng;
 use std::{
     cell::Cell,
