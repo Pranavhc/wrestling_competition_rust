@@ -55,8 +55,7 @@ fn register_wrestlers(wrestlers_list: &mut Vec<Wrestler>) {
 }
 
 fn intro_of_participants(wrestlers_list: &Vec<Wrestler>) {
-    println!("\n----------- Wrestlers Participating ----------");
-    println!("----------------------------------------------\n");
+    announcement("Wrestlers Participating");
 
     println!("NAME\tSKILLS ATTACK DEFENCE STRENGTH");
     println!("--------------------------------------");
@@ -70,8 +69,7 @@ fn intro_of_participants(wrestlers_list: &Vec<Wrestler>) {
 }
 
 fn points_table(wrestlers_list: &Vec<Wrestler>) {
-    println!("\n\n---- Points Table ----");
-    println!("------------------------\n");
+    announcement("Points Table");
 
     println!("NAME\tWINS");
     println!("-------------");
@@ -108,18 +106,25 @@ fn fight<'a>(w1: &'a Wrestler, w2: &'a Wrestler) -> &'a Wrestler {
     }
 }
 
+fn print_match_result(w1: &Wrestler, w2: &Wrestler, winner: &Wrestler) {
+    println!(
+        "{} 🆚 {} 🥊 The Winner is 💪 {}\n",
+        w1.name, w2.name, winner.name
+    );
+}
+
+fn announcement(msg: &str) {
+    println!("\n\n**** {} : ****", msg);
+    println!("------------------------------------------------\n");
+}
+
 fn league_stage(wrestlers_list: &Vec<Wrestler>) {
-    println!("\n\n ----- LEAGUE STAGE MATCHES : ----");
-    println!(" -----------------------------------\n");
+    announcement("LEAGUE STAGE MATCHES");
 
     for w1 in wrestlers_list {
         for w2 in wrestlers_list {
             if w1.id != w2.id {
-                let winner = fight(w1, w2);
-                println!(
-                    "{} 🆚 {} 🥊 The Winner is 💪 {}\n",
-                    w1.name, w2.name, winner.name
-                );
+                print_match_result(&w1, &w2, fight(w1, w2));
             }
         }
     }
@@ -129,18 +134,10 @@ fn semi_finals(wrestlers_list: &Vec<Wrestler>) -> (&Wrestler, &Wrestler) {
     let finalist1 = fight(&wrestlers_list[0], &wrestlers_list[1]);
     let finalist2 = fight(&wrestlers_list[2], &wrestlers_list[3]);
 
-    println!("\n\n ----- SEMIFINAL MATCHES ----");
-    println!(" ---------------------------------\n");
+    announcement("SEMIFINAL MATCHES");
 
-    println!(
-        "{} 🆚 {} 🥊 The Winner is 💪 {}\n",
-        wrestlers_list[0].name, wrestlers_list[1].name, finalist1.name
-    );
-
-    println!(
-        "{} 🆚 {} 🥊 The Winner is 💪 {}\n",
-        wrestlers_list[2].name, wrestlers_list[3].name, finalist2.name
-    );
+    print_match_result(&wrestlers_list[0], &wrestlers_list[1], &finalist1);
+    print_match_result(&wrestlers_list[2], &wrestlers_list[3], &finalist2);
 
     (finalist1, finalist2)
 }
@@ -148,22 +145,21 @@ fn semi_finals(wrestlers_list: &Vec<Wrestler>) -> (&Wrestler, &Wrestler) {
 fn finals(finalist1: &Wrestler, finalist2: &Wrestler) {
     let winner = fight(finalist1, finalist2);
 
-    println!("\n\n ----- THE FINALE ----");
-    println!(" --------------------------------\n");
+    announcement("THE FINALE");
 
     println!(
         "{} 🆚 {} 🥊 The Winner is..\n",
         finalist1.name, finalist2.name
     );
 
-    for _i in 0..34 {
-        print!("#");
+    for _i in 0..25 {
+        print!(". ");
         io::stdout().flush().expect("stdout pooped!");
-        std::thread::sleep(std::time::Duration::from_millis(25));
+        std::thread::sleep(std::time::Duration::from_millis(50));
     }
 
     println!(
-        "\n\n👑{}👑 He knocked out every opponent he faced, \nhe deserves this Wrestling Cup 🏆🏆🏆!\n\n",
+        "\n\n👑 {} 👑 He knocked out every opponent he faced, \nhe deserves this Wrestling Cup 🏆🏆🏆!\n\n",
         winner.name
     );
 }
