@@ -152,8 +152,9 @@ fn finals(finalist1: &Wrestler, finalist2: &Wrestler) {
         finalist1.name, finalist2.name
     );
 
-    for _i in 0..25 {
-        print!(". ");
+    // for some dramatic effect ✨
+    for _i in 0..15 {
+        print!("💸 ");
         io::stdout().flush().expect("stdout pooped!");
         std::thread::sleep(std::time::Duration::from_millis(50));
     }
